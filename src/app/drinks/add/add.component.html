@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row mt-2">
+        <div class="col-md-12 text-left">
+            <h3> {{drinkId ? 'Edit ': 'Add '}} Daily Drinks</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <form [formGroup]="drinksForm" (ngSubmit)="onSubmitDrink()">
+                    <div class="form-group mb-2">
+                        <label for="nameInput">Name</label>
+                        <input type="text" class="form-control" id="nameInput" placeholder="Enter name" formControlName="name">
+                        <div *ngIf="drinksForm.controls['name'].invalid && (drinksForm.controls['name'].dirty || drinksForm.controls['name'].touched)" class="text-danger">
+                            <div *ngIf="drinksForm.controls['name'].errors.required">
+                            Name is required.
+                          </div>
+                        </div>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="inputPrice">Price</label>
+                        <input type="text" formControlName="price" class="form-control" id="inputPrice" placeholder="Enter price" numbersOnly>
+                        <div *ngIf="drinksForm.controls['price'].invalid && (drinksForm.controls['price'].dirty || drinksForm.controls['price'].touched)" class="text-danger">
+                            <div *ngIf="drinksForm.controls['price'].errors.required">
+                            Price is required.
+                          </div>
+                        </div>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="inputNotes">Notes</label>
+                        <textarea type="text" class="form-control" id="inputNotes"  formControlName="notes" placeholder="Enter note here..."></textarea>
+                        <div *ngIf="drinksForm.controls['notes'].invalid && (drinksForm.controls['notes'].dirty || drinksForm.controls['notes'].touched)" class="text-danger">
+                            <div *ngIf="drinksForm.controls['notes'].errors.required">
+                            Notes is required.
+                          </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary cursor-pointer">Submit</button>
+                    <button type="button" class="btn btn-primary cursor-pointer margin-left" routerLink="/drinks/list">Back</button>
+                </form>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+.cursor-pointer {
+    cursor: pointer !important;
+}
+.addnew {
+    float: right !important;
+}
+.margin-left {
+    margin-left: 12px !important;
+}
